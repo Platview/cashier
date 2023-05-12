@@ -18,6 +18,8 @@ def work_space():
     if request.method == 'POST':
         item = request.form.get('item')
         qty = request.form.get('qty')
+        if qty == '':
+            qty = 1
         mark = Item.query.filter_by(barcode=item).first()
         # if item or qty is None:
         #     flash('This form must be filled', category='danger')
